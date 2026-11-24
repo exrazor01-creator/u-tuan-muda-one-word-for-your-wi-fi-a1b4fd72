@@ -19,6 +19,8 @@ def _check(text, limit):
         raise ValueError("entry runs past its character limit")
     if " " in text or "\t" in text:
         raise ValueError("entry must be exactly one word, no spaces")
+    if not text.isalpha():
+        raise ValueError("entry must be a single word of letters")
     for bad in ("\n", "\r"):
         if bad in text:
             raise ValueError("entry must stay a single clean line")
